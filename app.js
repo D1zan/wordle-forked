@@ -39,14 +39,22 @@ function render() {
     //Tjis searches the HTML doc for 
     //"<main id="root"><?main>
     //Then saves it in JS\\
-    const main= document.querySelector ('#root');
-    let template=``;
+    const main= document.querySelector('#root');
+    let template= `<div class="keyboard">`;
     for (let i=0; i<keyboard.length;i++){
+        template += `<div class="row">`
+        for (let j=0; j<keyboard[i].length;j++) {
+            template+= `<div class="key">${ keyboard[i][j] }</div>`
+        
+        }
+        template+= `</div>`
         console.log(i, keyboard [i]);
         //this tells what to do\\
     }
+    
+    template+= `</div>`
     //i is going to start at 3 and stop before 2\\
-    main.innerHTMLHTML= template;
+    main.innerHTML= template;
     console.log(main.innerHTML)
 }
 
