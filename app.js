@@ -17,7 +17,7 @@ window.addEventListener('keyup', logKey);
 //This is the code for the logKey function.\\
 function logKey(evt) { //evt is the event.
     //This runs everytime logKey is called()\\
-    //Check to see if the enter was typed.\\
+    //Check to see if the enter was typed\\
     if(evt.key.toUpperCase()== "ENTER"){
         console.log('submit')
     }
@@ -27,7 +27,7 @@ function logKey(evt) { //evt is the event.
     }
     
     // Alpha is a Set, we can use the built in method to check.\\
-    //if the set cntains the key just pressed.\\
+    //if the set contains the key just pressed.\\
     if (alpha.has( evt.key.toUpperCase() )) {
         console.log(evt.key.toUpperCase());
     } else {
@@ -36,7 +36,7 @@ function logKey(evt) { //evt is the event.
     }
 }
 function render() {
-    //Tjis searches the HTML doc for 
+    //This searches the HTML doc for 
     //"<main id="root"><?main>
     //Then saves it in JS\\
     const main= document.querySelector('#root');
