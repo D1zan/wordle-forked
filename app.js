@@ -4,12 +4,53 @@ const letters = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase();
 //this slits the letters into an Array\\
 //a new set is like an Array but only contains unique values\\
 const alpha = new Set(letters.split(''));
+
+let tries = [
+    [],
+    [],
+    [],
+    [],
+    [],
+]
+let attempt= 0;
+
+window.addEventListener('keyup', logKey);
+
+function logKey(evt) { 
+    console.log(evt);
+
+    if (evt.key.toUpperCase() == "ENTER") {
+        console.log('submit');
+        if (attempt < 6 && tries[attempt].length == 5) {
+            attempt++;
+        }
+    }
+
+    if (evt.key.toUpperCase() == "BACKSPACE") {
+        console.log('deleting');
+        tries[attempt].pop();
+    }
+
+    if (alpha.has( evt.key.toUpperCase() )) {
+        // console.log(evt.key.toUpperCase());
+        if (tries[attempt].length < 5) {
+            tries[attempt].push( evt.key.toUpperCase() )
+        }
+    } else {
+        console.log('not a letter');
+    }
+    render();
+}
+
 //This is an Array\\
 const keyboard = [
     "QWERTYUIOP".split(''),
     "ASDFGHJKL".split(''),
     "ZXCVBNM".split(''),
 ]
+keyboard[2].unshift('ENTER');
+keyboard[2].push('BACK');
+
 //Attach a function to the browser window\\
 //when a key is released, the logkey function will be called.\\
 //the evt is the "Keyup" and the callback function is "LogKey"\\
